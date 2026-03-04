@@ -1,26 +1,66 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f6f8;
+  --foreground: #2f3437;
+  
+  /* Paleta de colores personalizada */
+  --color-bg-main: #f5f6f8;
+  --color-panel-dark-from: #2b2727;
+  --color-panel-dark-to: #3a3434;
+  --color-accent: #f7c843;
+  --color-text-primary: #2f3437;
+  --color-text-secondary: #8c8f94;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  
+  /* Colores personalizados */
+  --color-bg-main: #f5f6f8;
+  --color-panel-dark-from: #2b2727;
+  --color-panel-dark-to: #3a3434;
+  --color-accent: #f7c843;
+  --color-text-primary: #2f3437;
+  --color-text-secondary: #8c8f94;
+  
+  /* Tipografía */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Clases de tipografía personalizadas */
+.text-title-large {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 2.25rem;
+}
+
+.text-subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.75rem;
+}
+
+.text-secondary {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.25rem;
+}
+
+.text-amount {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.5rem;
 }
