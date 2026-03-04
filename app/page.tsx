@@ -47,12 +47,56 @@ export default function Home() {
       </div>
 
       {/* Columna derecha - 30% - Sidebar fijo */}
-      <div className="fixed right-0 top-0 flex items-center justify-center p-6 md:p-10" 
+      <div className="fixed right-0 top-0 p-6 md:p-10" 
            style={{ 
              width: '30%', 
              minHeight: '100vh',
-             background: 'linear-gradient(135deg, var(--color-panel-dark-from) 0%, var(--color-panel-dark-to) 100%)'
+             background: 'linear-gradient(135deg, var(--color-panel-dark-from) 0%, var(--color-panel-dark-to) 100%)',
+             position: 'relative'
            }}>
+        
+        {/* Pestaña vertical con indicadores de pasos */}
+        <div style={{
+          position: 'absolute',
+          left: '-20px',
+          top: '50px',
+          width: '40px',
+          height: '180px',
+          backgroundColor: '#1a1a1a',
+          borderRadius: '20px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '20px',
+          padding: '20px 0'
+        }}>
+          {/* Círculo amarillo - paso activo */}
+          <div style={{
+            width: '12px',
+            height: '12px',
+            borderRadius: '50%',
+            backgroundColor: 'var(--color-accent)'
+          }}></div>
+          
+          {/* Círculo gris - paso inactivo */}
+          <div style={{
+            width: '12px',
+            height: '12px',
+            borderRadius: '50%',
+            backgroundColor: '#6b6b6b'
+          }}></div>
+          
+          {/* Círculo gris - paso inactivo */}
+          <div style={{
+            width: '12px',
+            height: '12px',
+            borderRadius: '50%',
+            backgroundColor: '#6b6b6b'
+          }}></div>
+        </div>
+        
+        {/* Contenido del panel */}
         <div className="w-full">
           <h2 className="text-subtitle" style={{ color: 'var(--color-accent)' }}>Card Details</h2>
           {/* Contenido del panel de pago irá aquí */}
