@@ -1,5 +1,45 @@
 "use client";
 
+// Datos de productos del carrito
+const cartItems = [
+  {
+    id: 1,
+    name: "Denim T-Shirt",
+    sku: "007197456",
+    color: "Blue",
+    quantity: 2,
+    price: 7500.00,
+    image: "/public/file.svg"
+  },
+  {
+    id: 2,
+    name: "Denim Pants",
+    sku: "011015223",
+    color: "Blue",
+    quantity: 3,
+    price: 9000.00,
+    image: "/public/file.svg"
+  },
+  {
+    id: 3,
+    name: "Sony Smartwat...",
+    sku: "004822981",
+    color: "Black",
+    quantity: 1,
+    price: 24500.00,
+    image: "/public/file.svg"
+  },
+  {
+    id: 4,
+    name: "Cognac Oxford",
+    sku: "035777962",
+    color: "Brown",
+    quantity: 1,
+    price: 4500.00,
+    image: "/public/file.svg"
+  }
+];
+
 export default function Home() {
   return (
     <div className="flex min-h-screen">
@@ -27,7 +67,137 @@ export default function Home() {
             <h1 className="text-title-large">Your Shopping Cart</h1>
           </div>
           
-          {/* Contenido del carrito irá aquí */}
+          {/* Lista de productos */}
+          <div style={{ marginBottom: '3rem' }}>
+            {cartItems.map((item) => (
+              <div 
+                key={item.id}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '1.5rem',
+                  backgroundColor: '#ffffff',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  marginBottom: '1rem',
+                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)'
+                }}
+              >
+                {/* Imagen circular del producto */}
+                <div style={{
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '50%',
+                  backgroundColor: '#f0f0f0',
+                  flexShrink: 0,
+                  overflow: 'hidden',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <div style={{
+                    width: '60%',
+                    height: '60%',
+                    backgroundColor: '#d0d0d0'
+                  }}></div>
+                </div>
+                
+                {/* Información del producto */}
+                <div style={{ flex: '1', minWidth: '0' }}>
+                  <h3 style={{
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    color: 'var(--color-text-primary)',
+                    marginBottom: '0.25rem'
+                  }}>{item.name}</h3>
+                  <p className="text-secondary" style={{ fontSize: '0.75rem' }}>
+                    Ref: {item.sku}
+                  </p>
+                </div>
+                
+                {/* Color */}
+                <div style={{ 
+                  minWidth: '60px',
+                  textAlign: 'center'
+                }}>
+                  <span style={{
+                    fontSize: '0.9rem',
+                    color: 'var(--color-text-primary)'
+                  }}>{item.color}</span>
+                </div>
+                
+                {/* Selector de cantidad */}
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}>
+                  <button style={{
+                    width: '28px',
+                    height: '28px',
+                    borderRadius: '50%',
+                    backgroundColor: '#8c8f94',
+                    border: 'none',
+                    color: '#ffffff',
+                    fontSize: '1rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: '600'
+                  }}>+</button>
+                  
+                  <span style={{
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    color: 'var(--color-text-primary)'
+                  }}>{item.quantity}</span>
+                  
+                  <button style={{
+                    width: '28px',
+                    height: '28px',
+                    borderRadius: '50%',
+                    backgroundColor: '#8c8f94',
+                    border: 'none',
+                    color: '#ffffff',
+                    fontSize: '1.2rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: '600',
+                    lineHeight: '1'
+                  }}>−</button>
+                </div>
+                
+                {/* Precio */}
+                <div style={{ 
+                  minWidth: '120px',
+                  textAlign: 'right'
+                }}>
+                  <span className="text-amount">
+                    {item.price.toFixed(2)} NGN
+                  </span>
+                </div>
+                
+                {/* Botón eliminar */}
+                <button style={{
+                  width: '24px',
+                  height: '24px',
+                  border: 'none',
+                  backgroundColor: 'transparent',
+                  color: '#8c8f94',
+                  fontSize: '1.2rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>×</button>
+              </div>
+            ))}
+          </div>
           
           {/* Navegación inferior y subtotal */}
           <div className="flex items-center justify-between" style={{ marginTop: '3rem' }}>
