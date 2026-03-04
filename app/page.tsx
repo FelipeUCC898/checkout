@@ -1,3 +1,5 @@
+"use client";
+
 export default function Home() {
   return (
     <div className="flex min-h-screen">
@@ -98,8 +100,215 @@ export default function Home() {
         
         {/* Contenido del panel */}
         <div className="w-full">
-          <h2 className="text-subtitle" style={{ color: 'var(--color-accent)' }}>Card Details</h2>
+          <h2 className="text-subtitle" style={{ color: 'var(--color-accent)', marginBottom: '3rem' }}>Card Details</h2>
+          
+          {/* Select Card Type */}
+          <div style={{ marginBottom: '2rem' }}>
+            <label style={{ 
+              display: 'block',
+              fontSize: '0.95rem',
+              color: '#b8b8b8',
+              marginBottom: '1rem',
+              fontWeight: '400'
+            }}>Select Card Type</label>
+            
+            {/* Logos de tarjetas */}
+            <div style={{ 
+              display: 'flex', 
+              gap: '2rem',
+              alignItems: 'center'
+            }}>
+              {/* Mastercard - seleccionado */}
+              <div style={{
+                display: 'flex',
+                gap: '4px',
+                opacity: '1',
+                cursor: 'pointer'
+              }}>
+                <div style={{
+                  width: '28px',
+                  height: '28px',
+                  borderRadius: '50%',
+                  backgroundColor: '#ffffff'
+                }}></div>
+                <div style={{
+                  width: '28px',
+                  height: '28px',
+                  borderRadius: '50%',
+                  backgroundColor: '#ffffff',
+                  marginLeft: '-12px'
+                }}></div>
+              </div>
+              
+              {/* VISA - no seleccionado */}
+              <span style={{
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                color: '#6b6b6b',
+                opacity: '0.5',
+                cursor: 'pointer'
+              }}>VISA</span>
+              
+              {/* Verve - no seleccionado */}
+              <span style={{
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                color: '#6b6b6b',
+                opacity: '0.5',
+                cursor: 'pointer'
+              }}>Verve</span>
+            </div>
+          </div>
+          
           {/* Contenido del panel de pago irá aquí */}
+          
+          {/* Formulario de tarjeta */}
+          <div style={{ marginTop: '2.5rem' }}>
+            {/* Card Number */}
+            <div style={{ marginBottom: '2.5rem' }}>
+              <label style={{ 
+                display: 'block',
+                fontSize: '0.9rem',
+                color: '#b8b8b8',
+                marginBottom: '1rem',
+                fontWeight: '400'
+              }}>Card Number</label>
+              <input 
+                type="text"
+                style={{
+                  width: '100%',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  borderBottom: '1px solid #6b6b6b',
+                  color: '#ffffff',
+                  fontSize: '1rem',
+                  padding: '0.5rem 0',
+                  outline: 'none'
+                }}
+              />
+            </div>
+            
+            {/* Expiry Date y CVV */}
+            <div style={{ 
+              display: 'flex', 
+              gap: '3rem',
+              marginBottom: '2.5rem'
+            }}>
+              {/* Expiry Date */}
+              <div style={{ flex: '1' }}>
+                <label style={{ 
+                  display: 'block',
+                  fontSize: '0.9rem',
+                  color: '#b8b8b8',
+                  marginBottom: '1rem',
+                  fontWeight: '400'
+                }}>Expiry Date</label>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}>
+                  <input 
+                    type="text"
+                    placeholder=""
+                    maxLength={2}
+                    style={{
+                      width: '40px',
+                      backgroundColor: 'transparent',
+                      border: 'none',
+                      borderBottom: '1px solid #6b6b6b',
+                      color: '#ffffff',
+                      fontSize: '1rem',
+                      padding: '0.5rem 0',
+                      outline: 'none',
+                      textAlign: 'center'
+                    }}
+                  />
+                  <span style={{ color: '#6b6b6b' }}>/</span>
+                  <input 
+                    type="text"
+                    placeholder=""
+                    maxLength={2}
+                    style={{
+                      width: '40px',
+                      backgroundColor: 'transparent',
+                      border: 'none',
+                      borderBottom: '1px solid #6b6b6b',
+                      color: '#ffffff',
+                      fontSize: '1rem',
+                      padding: '0.5rem 0',
+                      outline: 'none',
+                      textAlign: 'center'
+                    }}
+                  />
+                  <span style={{ color: '#6b6b6b' }}>/</span>
+                  <input 
+                    type="text"
+                    placeholder=""
+                    maxLength={4}
+                    style={{
+                      width: '60px',
+                      backgroundColor: 'transparent',
+                      border: 'none',
+                      borderBottom: '1px solid #6b6b6b',
+                      color: '#ffffff',
+                      fontSize: '1rem',
+                      padding: '0.5rem 0',
+                      outline: 'none',
+                      textAlign: 'center'
+                    }}
+                  />
+                </div>
+              </div>
+              
+              {/* CVV */}
+              <div style={{ flex: '0 0 auto' }}>
+                <label style={{ 
+                  display: 'block',
+                  fontSize: '0.9rem',
+                  color: '#b8b8b8',
+                  marginBottom: '1rem',
+                  fontWeight: '400'
+                }}>CVV</label>
+                <input 
+                  type="text"
+                  maxLength={3}
+                  style={{
+                    width: '60px',
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    borderBottom: '1px solid #6b6b6b',
+                    color: '#ffffff',
+                    fontSize: '1rem',
+                    padding: '0.5rem 0',
+                    outline: 'none',
+                    textAlign: 'center'
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+          
+          {/* Botón Checkout */}
+          <div style={{ marginTop: '4rem' }}>
+            <button style={{
+              width: '100%',
+              backgroundColor: 'var(--color-accent)',
+              color: '#2f3437',
+              border: 'none',
+              borderRadius: '8px',
+              padding: '1rem 2rem',
+              fontSize: '1.1rem',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'opacity 0.2s'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+            >
+              Checkout
+            </button>
+          </div>
         </div>
       </div>
     </div>
